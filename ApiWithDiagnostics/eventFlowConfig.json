@@ -1,0 +1,12 @@
+{
+  "inputs": [
+    {
+      "type": "Microsoft.Extensions.Logging"
+    }
+  ],
+  "outputs": [
+    {
+      "type": "StdOutput"
+    }
+  ]
+}
