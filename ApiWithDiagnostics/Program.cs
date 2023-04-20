@@ -1,5 +1,6 @@
 using ApiWithDiagnostics;
 using ApiWithDiagnostics.DbAccess;
+using ApiWithDiagnostics.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.ConfigureHttpClients();
 builder.ConfigureLogging();
 
 builder.Services.AddScoped<IDbAccess, DbAccess>();
+builder.Services.AddScoped<IHttpRequests, HttpRequests>();
 
 var app = builder.Build();
 
