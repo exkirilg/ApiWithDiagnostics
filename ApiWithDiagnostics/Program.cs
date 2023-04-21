@@ -1,5 +1,6 @@
 using ApiWithDiagnostics;
 using ApiWithDiagnostics.DbAccess;
+using ApiWithDiagnostics.Middlewares;
 using ApiWithDiagnostics.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,9 @@ builder.Services.AddScoped<IHttpRequests, HttpRequests>();
 var app = builder.Build();
 
 app.UseHttpsRedirection();
+
+app.UseMetrics();
+
 app.MapControllers();
 app.ConfigureApi();
 
