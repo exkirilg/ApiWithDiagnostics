@@ -1,11 +1,13 @@
 using ApiWithDiagnostics;
 using ApiWithDiagnostics.DbAccess;
-using ApiWithDiagnostics.Middlewares;
 using ApiWithDiagnostics.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<LogRequestTimeFilterAttribute>();
+});
 
 builder.ConfigureHttpClients();
 builder.ConfigureLogging();
@@ -16,8 +18,6 @@ builder.Services.AddScoped<IHttpRequests, HttpRequests>();
 var app = builder.Build();
 
 app.UseHttpsRedirection();
-
-app.UseMetrics();
 
 app.MapControllers();
 app.ConfigureApi();
