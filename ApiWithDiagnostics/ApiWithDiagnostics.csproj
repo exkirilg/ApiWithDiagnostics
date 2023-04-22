@@ -9,9 +9,16 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Microsoft.Diagnostics.EventFlow.Inputs.EventSource" Version="1.5.0" />
     <PackageReference Include="Microsoft.Diagnostics.EventFlow.Inputs.MicrosoftLogging" Version="1.6.1" />
     <PackageReference Include="Microsoft.Diagnostics.EventFlow.Outputs.StdOutput" Version="1.7.0" />
     <PackageReference Include="Npgsql" Version="7.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="eventFlowConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

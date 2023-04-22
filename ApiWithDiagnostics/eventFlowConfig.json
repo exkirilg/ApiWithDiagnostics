@@ -2,6 +2,15 @@
   "inputs": [
     {
       "type": "Microsoft.Extensions.Logging"
+    },
+    {
+      "type": "EventSource",
+      "sources": [
+        {
+          "providerName": "ApiWithDiagnostics.Metrics",
+          "level": "Informational"
+        }
+      ]
     }
   ],
   "outputs": [
